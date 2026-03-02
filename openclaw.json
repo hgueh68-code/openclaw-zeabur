@@ -8,11 +8,11 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "ollama/minimax-m2.5:cloud"
+        "primary": "ollama/qwen3.5:397b-cloud"
       },
       "models": {
-        "ollama/minimax-m2.5:cloud": {
-          "alias": "Ollama Cloud MiniMax M2.5"
+        "ollama/qwen3.5:397b-cloud": {
+          "alias": "Ollama Cloud Qwen 3.5 397B"
         }
       }
     }
@@ -40,8 +40,8 @@
         "api": "openai-completions",
         "models": [
           {
-            "id": "minimax-m2.5:cloud",
-            "name": "minimax-m2.5:cloud"
+            "id": "qwen3.5:397b-cloud",
+            "name": "qwen3.5:397b-cloud"
           }
         ]
       }
