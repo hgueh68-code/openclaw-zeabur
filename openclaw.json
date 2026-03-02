@@ -2,9 +2,16 @@
   "gateway": {
     "mode": "local"
   },
-  "agent": {
-    "model": {
-      "primary": "sambanova/Meta-Llama-3.3-70B-Instruct"
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "sambanova/Meta-Llama-3.3-70B-Instruct"
+      },
+      "models": {
+        "sambanova/Meta-Llama-3.3-70B-Instruct": {
+          "alias": "Samba Llama 3.3 70B"
+        }
+      }
     }
   },
   "channels": {
@@ -22,11 +29,18 @@
     }
   },
   "models": {
+    "mode": "merge",
     "providers": {
       "sambanova": {
-        "type": "openai",
         "baseUrl": "https://api.sambanova.ai/v1",
-        "apiKeyEnv": "OPENAI_API_KEY"
+        "apiKey": "${OPENAI_API_KEY}",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "Meta-Llama-3.3-70B-Instruct",
+            "name": "Meta-Llama-3.3-70B-Instruct"
+          }
+        ]
       }
     }
   }
