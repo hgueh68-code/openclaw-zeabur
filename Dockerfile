@@ -1,10 +1,20 @@
 FROM ghcr.io/openclaw/openclaw:latest
 
-# Copy OpenClaw config for SambaNova + Telegram
-COPY openclaw.json /home/node/.openclaw/openclaw.json
+USER root
+WORKDIR /app
+
+# Copy config and start script
+COPY openclaw.json /app/openclaw.json
+COPY start.sh /app/start.sh
+
+# Make start script executable
+RUN chmod +x /app/start.sh
+
+# Switch back to node user to prevent permission issues
+USER node
 
 # Expose Gateway port
 EXPOSE 18789
 
-# Start the gateway bound to 0.0.0.0 so Zeabur can route traffic
-CMD ["openclaw", "gateway", "--port", "18789", "--bind", "0.0.0.0"]
+# Run through our startup script to handle the volume mount override
+CMD ["/app/start.sh"]
