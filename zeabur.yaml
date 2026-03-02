@@ -1,0 +1,19 @@
+# Zeabur Deployment Configuration for OpenClaw
+apiVersion: zeabur.com/v1
+kind: Service
+metadata:
+  name: openclaw
+spec:
+  source:
+    image: ghcr.io/openclaw/openclaw:latest
+  ports:
+    - port: 18789
+      type: HTTP
+  env:
+    - name: TELEGRAM_BOT_TOKEN
+      value: "8308947788:AAEj-45c302No_E7SYKML2tOahrf_mCt1S8"
+    - name: GOOGLE_API_KEY
+      value: "AIzaSyCX-qXVRoqVTr-QdITJ1zClXfVlf3-Xrt4"
+  volumes:
+    - name: openclaw-data
+      path: /home/node/.openclaw
