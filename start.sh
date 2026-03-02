@@ -1,7 +1,13 @@
 #!/bin/sh
 
-# Ensure the config exists in the volume (Zeabur volume mount hides the image's files)
-cp /app/openclaw.json /home/node/.openclaw/openclaw.json
+echo "Initialising OpenClaw setup..."
 
-# Start the OpenClaw gateway
-exec openclaw gateway --port 18789 --bind 0.0.0.0
+# Ensure the .openclaw directory exists in the persistent volume
+mkdir -p /home/node/.openclaw
+
+# Force copy the config into the mounted volume
+echo "Copying config..."
+cp -f /app/openclaw.json /home/node/.openclaw/openclaw.json
+
+echo "Starting OpenClaw gateway on 0.0.0.0:18789"
+exec openclaw gateway --port 18789 --bind 0.0.0.0 --allow-unconfigured

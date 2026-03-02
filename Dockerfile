@@ -1,16 +1,21 @@
 FROM ghcr.io/openclaw/openclaw:latest
 
-# Set the OPENCLAW_CONFIG environment variable to point to our included config
-# so we don't rely on the persistent volume for the main config file
-ENV OPENCLAW_CONFIG=/app/openclaw.json
-
+# Switch to root to setup permissions
+USER root
 WORKDIR /app
 
-# Copy the config directly into the container
+# Copy the config and start script
 COPY openclaw.json /app/openclaw.json
+COPY start.sh /app/start.sh
+
+# Make start script executable and give node user ownership
+RUN chmod +x /app/start.sh && chown -R node:node /app
+
+# Switch back strictly to node user
+USER node
 
 # Expose Gateway port
 EXPOSE 18789
 
-# Start with --allow-unconfigured to bypass any strict startup checks
-CMD ["openclaw", "gateway", "--port", "18789", "--bind", "0.0.0.0", "--allow-unconfigured"]
+# Run the startup script
+CMD ["/app/start.sh"]
