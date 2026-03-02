@@ -1,34 +1,33 @@
 {
-    // OpenClaw 設定 - SambaNova + Telegram
-  agent: {
-    model: {
-            // SambaNova 上的 Meta-Llama-3.3-70B (免費且強大)
-      primary: "sambanova/Meta-Llama-3.3-70B-Instruct"
-        }
-    },
-  channels: {
-    telegram: {
-      enabled: true,
-            // DM 開放模式，直接跟 bot 聊天不用配對
-      dmPolicy: "open",
-      allowFrom: [
-                "*"
-            ],
-      groups: {
-                "*": {
-          requireMention: true
-                }
-            }
-        }
-    },
-    // 註冊 SambaNova 為自訂 provider（OpenAI 相容）
-  models: {
-    providers: {
-      sambanova: {
-        type: "openai",
-        baseUrl: "https://api.sambanova.ai/v1",
-        apiKeyEnv: "OPENAI_API_KEY"
-            }
-        }
+  "gateway": {
+    "mode": "local"
+  },
+  "agent": {
+    "model": {
+      "primary": "sambanova/Meta-Llama-3.3-70B-Instruct"
     }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "open",
+      "allowFrom": [
+        "*"
+      ],
+      "groups": {
+        "*": {
+          "requireMention": true
+        }
+      }
+    }
+  },
+  "models": {
+    "providers": {
+      "sambanova": {
+        "type": "openai",
+        "baseUrl": "https://api.sambanova.ai/v1",
+        "apiKeyEnv": "OPENAI_API_KEY"
+      }
+    }
+  }
 }

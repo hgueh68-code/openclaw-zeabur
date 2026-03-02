@@ -1,21 +1,17 @@
 FROM ghcr.io/openclaw/openclaw:latest
 
-# Switch to root to setup permissions
 USER root
-WORKDIR /app
 
-# Copy the config and start script
+# Copy config to a safe location outside the volume mount path
 COPY openclaw.json /app/openclaw.json
-COPY start.sh /app/start.sh
 
-# Make start script executable and give node user ownership
-RUN chmod +x /app/start.sh && chown -R node:node /app
+# Create an entrypoint script INLINE to avoid Windows CRLF issues
+RUN printf '#!/bin/sh\n\
+    mkdir -p /home/node/.openclaw\n\
+    cp -f /app/openclaw.json /home/node/.openclaw/openclaw.json\n\
+    chown -R node:node /home/node/.openclaw\n\
+    exec su -s /bin/sh node -c "openclaw gateway --port 18789 --bind 0.0.0.0 --allow-unconfigured"\n' > /app/start.sh && chmod +x /app/start.sh
 
-# Switch back strictly to node user
-USER node
-
-# Expose Gateway port
 EXPOSE 18789
 
-# Run the startup script
 CMD ["/app/start.sh"]
