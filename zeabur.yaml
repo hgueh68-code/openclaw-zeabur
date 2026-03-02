@@ -16,6 +16,8 @@ spec:
       value: "0107268b-f8e5-467c-a768-a8d76b0c1ca2"
     - name: OPENAI_BASE_URL
       value: "https://api.sambanova.ai/v1"
+    - name: OPENCLAW_GATEWAY_BIND
+      value: "lan"
   volumes:
     - name: openclaw-data
       path: /home/node/.openclaw
