@@ -8,11 +8,11 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "sambanova/Meta-Llama-3.3-70B-Instruct"
+        "primary": "groq/llama-3.3-70b-versatile"
       },
       "models": {
-        "sambanova/Meta-Llama-3.3-70B-Instruct": {
-          "alias": "Samba Llama 3.3 70B"
+        "groq/llama-3.3-70b-versatile": {
+          "alias": "Groq Llama 3.3 70B"
         }
       }
     }
@@ -34,14 +34,14 @@
   "models": {
     "mode": "merge",
     "providers": {
-      "sambanova": {
-        "baseUrl": "https://api.sambanova.ai/v1",
+      "groq": {
+        "baseUrl": "https://api.groq.com/openai/v1",
         "apiKey": "${OPENAI_API_KEY}",
         "api": "openai-completions",
         "models": [
           {
-            "id": "Meta-Llama-3.3-70B-Instruct",
-            "name": "Meta-Llama-3.3-70B-Instruct"
+            "id": "llama-3.3-70b-versatile",
+            "name": "llama-3.3-70b-versatile"
           }
         ]
       }
