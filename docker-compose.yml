@@ -2,18 +2,17 @@ version: "3.8"
 
 services:
   openclaw-gateway:
-    image: ghcr.io/openclaw/openclaw:latest
+    build: .
     container_name: openclaw-gateway
     restart: unless-stopped
     ports:
       - "18789:18789"
     environment:
       - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
-      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_BASE_URL=${OPENAI_BASE_URL}
     volumes:
       - openclaw-data:/home/node/.openclaw
-      - openclaw-workspace:/home/node/.openclaw/workspace
 
 volumes:
   openclaw-data:
-  openclaw-workspace:

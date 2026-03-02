@@ -12,8 +12,10 @@ spec:
   env:
     - name: TELEGRAM_BOT_TOKEN
       value: "8308947788:AAEj-45c302No_E7SYKML2tOahrf_mCt1S8"
-    - name: GOOGLE_API_KEY
-      value: "AIzaSyCX-qXVRoqVTr-QdITJ1zClXfVlf3-Xrt4"
+    - name: OPENAI_API_KEY
+      value: "0107268b-f8e5-467c-a768-a8d76b0c1ca2"
+    - name: OPENAI_BASE_URL
+      value: "https://api.sambanova.ai/v1"
   volumes:
     - name: openclaw-data
       path: /home/node/.openclaw
