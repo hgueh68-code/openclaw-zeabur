@@ -8,11 +8,11 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "groq/llama-3.3-70b-versatile"
+        "primary": "ollama/minimax-m2.5:cloud"
       },
       "models": {
-        "groq/llama-3.3-70b-versatile": {
-          "alias": "Groq Llama 3.3 70B"
+        "ollama/minimax-m2.5:cloud": {
+          "alias": "Ollama Cloud MiniMax M2.5"
         }
       }
     }
@@ -34,14 +34,14 @@
   "models": {
     "mode": "merge",
     "providers": {
-      "groq": {
-        "baseUrl": "https://api.groq.com/openai/v1",
-        "apiKey": "${OPENAI_API_KEY}",
+      "ollama": {
+        "baseUrl": "https://ollama.com/v1",
+        "apiKey": "${OLLAMA_API_KEY}",
         "api": "openai-completions",
         "models": [
           {
-            "id": "llama-3.3-70b-versatile",
-            "name": "llama-3.3-70b-versatile"
+            "id": "minimax-m2.5:cloud",
+            "name": "minimax-m2.5:cloud"
           }
         ]
       }
