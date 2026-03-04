@@ -8,6 +8,10 @@
     "controlUi": {
       "allowInsecureAuth": true,
       "dangerouslyDisableDeviceAuth": true,
+      "allowedOrigins": [
+        "https://hgus7089-openclaw.hf.space",
+        "https://huggingface.co"
+      ],
       "dangerouslyAllowHostHeaderOriginFallback": true
     }
   },
