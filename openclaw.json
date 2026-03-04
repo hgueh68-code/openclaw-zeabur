@@ -36,6 +36,10 @@
   "channels": {
     "telegram": {
       "enabled": true,
+      "network": {
+        "autoSelectFamily": false,
+        "dnsResultOrder": "ipv4first"
+      },
       "dmPolicy": "open",
       "allowFrom": [
         "*"
