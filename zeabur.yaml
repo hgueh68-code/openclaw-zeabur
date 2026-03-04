@@ -16,6 +16,8 @@ spec:
       value: "69c73ab353c24cde9379581a334e136c.Wttm4HLv1QOZxXv8hm-lsPtI"
     - name: OLLAMA_API_KEY_2
       value: "594877ae550348b196cce612a7deacb3.KyWv1wcnVSF13ObpUVoXZ6au"
+    - name: OPENCLAW_GATEWAY_TOKEN
+      value: "hgus_openclaw_gateway_token_20260304"
     - name: OPENCLAW_GATEWAY_BIND
       value: "lan"
   volumes:

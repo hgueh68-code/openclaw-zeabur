@@ -11,6 +11,7 @@ services:
       - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
       - OLLAMA_API_KEY_1=${OLLAMA_API_KEY_1}
       - OLLAMA_API_KEY_2=${OLLAMA_API_KEY_2}
+      - OPENCLAW_GATEWAY_TOKEN=${OPENCLAW_GATEWAY_TOKEN}
     volumes:
       - openclaw-data:/home/node/.openclaw
 
