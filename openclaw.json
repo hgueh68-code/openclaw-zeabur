@@ -36,6 +36,8 @@
   "channels": {
     "telegram": {
       "enabled": true,
+      "botToken": "${TELEGRAM_BOT_TOKEN}",
+      "mode": "polling",
       "dmPolicy": "open",
       "allowFrom": [
         "*"
