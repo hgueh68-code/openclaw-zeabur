@@ -36,6 +36,7 @@
   "channels": {
     "telegram": {
       "enabled": true,
+      "botToken": "${TELEGRAM_BOT_TOKEN}",
       "network": {
         "autoSelectFamily": false,
         "dnsResultOrder": "ipv4first"
@@ -93,3 +94,4 @@
     }
   }
 }
+
