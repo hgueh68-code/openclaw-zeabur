@@ -11,11 +11,11 @@ spec:
       type: HTTP
   env:
     - name: TELEGRAM_BOT_TOKEN
-      value: "8308947788:AAEj-45c302No_E7SYKML2tOahrf_mCt1S8"
-    - name: OPENAI_API_KEY
-      value: "0107268b-f8e5-467c-a768-a8d76b0c1ca2"
-    - name: OPENAI_BASE_URL
-      value: "https://api.sambanova.ai/v1"
+      value: "8492596954:AAHpmKiJVTAv1dmGU34MzTeoRlKG5sVRbmM"
+    - name: OLLAMA_API_KEY_1
+      value: "69c73ab353c24cde9379581a334e136c.Wttm4HLv1QOZxXv8hm-lsPtI"
+    - name: OLLAMA_API_KEY_2
+      value: "594877ae550348b196cce612a7deacb3.KyWv1wcnVSF13ObpUVoXZ6au"
     - name: OPENCLAW_GATEWAY_BIND
       value: "lan"
   volumes:

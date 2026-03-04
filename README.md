@@ -11,7 +11,8 @@ This Space runs OpenClaw Gateway using Docker.
 
 ## Required Space Secrets
 
-- `OLLAMA_API_KEY`: API key for the configured model provider.
+- `OLLAMA_API_KEY_1`: Primary Ollama API key.
+- `OLLAMA_API_KEY_2`: Secondary Ollama API key (used as failover when key 1 is rate-limited).
 - `TELEGRAM_BOT_TOKEN`: Telegram bot token (if Telegram channel is enabled).
 - `BRAVE_API_KEY`: Brave Search API key (optional, for web search tool).
 - `OPENCLAW_GATEWAY_BIND`: set to `lan`.

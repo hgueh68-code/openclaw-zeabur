@@ -9,8 +9,8 @@ services:
       - "18789:18789"
     environment:
       - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - OPENAI_BASE_URL=${OPENAI_BASE_URL}
+      - OLLAMA_API_KEY_1=${OLLAMA_API_KEY_1}
+      - OLLAMA_API_KEY_2=${OLLAMA_API_KEY_2}
     volumes:
       - openclaw-data:/home/node/.openclaw
 

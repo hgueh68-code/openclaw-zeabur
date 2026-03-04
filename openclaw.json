@@ -18,17 +18,25 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "ollama/qwen3.5:397b-cloud",
+        "primary": "ollama_primary/qwen3.5:397b-cloud",
         "fallbacks": [
-          "ollama/minimax-m2.5:cloud"
+          "ollama_secondary/qwen3.5:397b-cloud",
+          "ollama_primary/minimax-m2.5:cloud",
+          "ollama_secondary/minimax-m2.5:cloud"
         ]
       },
       "models": {
-        "ollama/qwen3.5:397b-cloud": {
-          "alias": "Ollama Cloud Qwen 3.5 397B"
+        "ollama_primary/qwen3.5:397b-cloud": {
+          "alias": "Ollama Key1 Qwen 3.5 397B"
         },
-        "ollama/minimax-m2.5:cloud": {
-          "alias": "Ollama Cloud MiniMax M2.5"
+        "ollama_secondary/qwen3.5:397b-cloud": {
+          "alias": "Ollama Key2 Qwen 3.5 397B"
+        },
+        "ollama_primary/minimax-m2.5:cloud": {
+          "alias": "Ollama Key1 MiniMax M2.5"
+        },
+        "ollama_secondary/minimax-m2.5:cloud": {
+          "alias": "Ollama Key2 MiniMax M2.5"
         }
       }
     }
@@ -55,9 +63,24 @@
   "models": {
     "mode": "merge",
     "providers": {
-      "ollama": {
+      "ollama_primary": {
         "baseUrl": "https://ollama.com/v1",
-        "apiKey": "${OLLAMA_API_KEY}",
+        "apiKey": "${OLLAMA_API_KEY_1}",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "qwen3.5:397b-cloud",
+            "name": "qwen3.5:397b-cloud"
+          },
+          {
+            "id": "minimax-m2.5:cloud",
+            "name": "minimax-m2.5:cloud"
+          }
+        ]
+      },
+      "ollama_secondary": {
+        "baseUrl": "https://ollama.com/v1",
+        "apiKey": "${OLLAMA_API_KEY_2}",
         "api": "openai-completions",
         "models": [
           {
