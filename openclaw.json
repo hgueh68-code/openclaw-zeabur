@@ -40,6 +40,8 @@
         "autoSelectFamily": false,
         "dnsResultOrder": "ipv4first"
       },
+      "webhookUrl": "https://hgus7089-openclaw.hf.space/telegram-webhook",
+      "webhookSecret": "${TELEGRAM_WEBHOOK_SECRET}",
       "dmPolicy": "open",
       "allowFrom": [
         "*"
